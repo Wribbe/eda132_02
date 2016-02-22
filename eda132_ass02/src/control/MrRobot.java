@@ -103,6 +103,11 @@ public class MrRobot {
 	
 	private ArrayList<String> get_possible_headings() {
 		ArrayList<String> list = new ArrayList<String>();
+		Boolean x_is_fine = this.x < model.getNumCols() && this.x > -1;
+		Boolean y_is_fine = this.y < model.getNumCols() && this.y > -1;
+		if (!x_is_fine || !y_is_fine) {
+			return list;
+		}
 		for (String heading : headings) {
 			if (can_i_go(heading)) {
 				list.add(heading);
