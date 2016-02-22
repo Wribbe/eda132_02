@@ -51,6 +51,56 @@ public class MrRobot {
 		this.heading = new_heading;
 	}
 	
+	public int[] sensor_me_this() {
+
+		int [] coordinates = new int[2];
+
+		coordinates[0] = this.x;
+		coordinates[1] = this.y;
+
+		int percent = rnd.nextInt(100)+1;
+
+		if (percent <= 10) {
+			return coordinates;
+		} else if (percent <= 50) {
+			return sensor_distrubance(coordinates, 1);
+		} else if (percent <= 90) {
+			return sensor_distrubance(coordinates, 2);
+		} else {
+			coordinates[0] = -1;
+			coordinates[1] = -1;
+			return coordinates;
+		}
+	}
+	
+	private int[] sensor_distrubance(int[] data, int level) {
+
+		int[] disturbed_data = new int[2];
+
+		int diff_x = rnd.nextInt(2)-1; //[-1,0,1]
+		int diff_y = rnd.nextInt(2)-1; //[-1,0,1]
+
+		int old_x = this.x;
+		int old_y = this.y;
+
+		this.x += diff_x*level;
+		this.y += diff_y*level;
+
+		if (get_possible_headings().size() == 0) {
+			disturbed_data[0] = -1;
+			disturbed_data[1] = -1;
+		} else {
+			disturbed_data[0] = this.x;
+			disturbed_data[1] = this.y;
+		}
+
+		// Restore old positions of robot.
+		this.x = old_x;
+		this.y = old_y;
+
+		return disturbed_data;
+	}
+	
 	private ArrayList<String> get_possible_headings() {
 		ArrayList<String> list = new ArrayList<String>();
 		for (String heading : headings) {
