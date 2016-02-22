@@ -68,7 +68,7 @@ public class MrRobot {
 		return list.get(rnd.nextInt(list.size()));
 	}
 	
-	public Boolean can_i_go(String robot_heading) {
+	private Boolean can_i_go(String robot_heading) {
 		int[] modifiers = direction_modifiers.get(robot_heading);
 		int new_x = this.x + modifiers[0];
 		int new_y = this.y + modifiers[1];
