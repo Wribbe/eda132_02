@@ -20,7 +20,9 @@ public class Main {
 		MrRobot Sebastian = new MrRobot(0,0,"E",model);
 		for (int i = 0; i < 100; i++) {
 			Sebastian.move();
-			System.out.println(Sebastian);
+			System.out.println("Position: "+Sebastian);
+			int [] sensor_coords = Sebastian.sensor_me_this();
+			System.out.println(String.format("Sensor: (%d, %d)",sensor_coords[0], sensor_coords[1]));
 		}
 
 		RobotLocalizationViewer viewer = new RobotLocalizationViewer(model);
