@@ -13,8 +13,8 @@ public class MrRobot {
 	Random rnd;
 	String[] headings = {"N","W","S","E"};
 	//             N   W   S   E  
-	int xlist[] = {0, -1,  0,  0};
-	int ylist[] = {1,  0, -1,  1};
+	int xlist[] = {0, -1,  0,  1};
+	int ylist[] = {1,  0, -1,  0};
 	Model model;
 	
 	HashMap<String, int[]> direction_modifiers = new HashMap<String, int[]>();
