@@ -46,11 +46,8 @@ public class MrRobot {
 			new_heading = pick_one(possible_headings);
 		}
 		int[] modifiers = direction_modifiers.get(new_heading);
-		System.out.println("heading: "+new_heading);
-		System.out.println("modifiers: "+modifiers[0]+','+modifiers[1]);
 		this.x += modifiers[0];
 		this.y += modifiers[1];
-		System.out.println(this.x);
 		this.heading = new_heading;
 	}
 	
