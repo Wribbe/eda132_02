@@ -18,7 +18,10 @@ public class Main {
 		//EstimatorInterface l = new DummyLocalizer( 4, 4, 4);
 		Model model = new Model(4, 4, 4);
 		MrRobot Sebastian = new MrRobot(0,0,"E",model);
-		Sebastian.move();
+		for (int i = 0; i < 100; i++) {
+			Sebastian.move();
+			System.out.println(Sebastian);
+		}
 
 		RobotLocalizationViewer viewer = new RobotLocalizationViewer(model);
 
